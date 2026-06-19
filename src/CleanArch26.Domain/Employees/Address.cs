@@ -1,0 +1,8 @@
+namespace CleanArch26.Domain.Employees;
+public sealed record Address
+{
+    public string? Country { get; set; }
+    public string? City { get; set; }
+    public int ZipCode { get; set; }
+    public string? FullAddress { get; set; }
+}
