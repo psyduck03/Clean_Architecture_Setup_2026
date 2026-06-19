@@ -1,6 +1,6 @@
-# Clean Architecture Setup 2025
+# Clean Architecture Setup 2026
 
-This repository provides a modern and modular Clean Architecture structure that you can use as a starting point for your projects in 2025.
+This repository provides a modern and modular Clean Architecture structure that you can use as a starting point for your projects in 2026.
 
 ---
 
@@ -11,7 +11,6 @@ This repository provides a modern and modular Clean Architecture structure that 
 - **Design Patterns**:
   - Repository Pattern
   - UnitOfWork Pattern
-  - Result Pattern
   - CQRS Pattern
 
 ### Libraries Used
@@ -42,44 +41,44 @@ Follow these steps to set up and run the project:
 - [.NET SDK 9.0](https://dotnet.microsoft.com/download) installed on your machine.
 - A SQL Server instance for the database.
 
-### Installation Steps and Configuration 
+### Installation Steps and Configuration
 
 1. **Clone the Repository**:
 ```bash
-git clone https://github.com/psyduck03/Clean_Architecture_Setup_2025.git
+git clone https://github.com/psyduck03/Clean_Architecture_Setup_2026.git
 ```
 2. **Navigate to the Project Directory**:
 ```bash
-cd Clean_Architecture_Setup_2025
+cd Clean_Architecture_Setup_2026
 ```
 3. **Configure the Database**:
-   - Open the `appsettings.json` file in the `CleanArch25.API` project.
-   - Update the connection string to match your database configuration:
+   - Open the `appsettings.json` file in the `CleanArch26.API` project.
+   - Update the connection string and JWT settings to match your environment:
 ```json
 "ConnectionStrings": {
-    "SqlServer": "Server=localhost,1433;Database=CleanArch25Db;User Id=sa;Password=YourPassword;TrustServerCertificate=True;"
+    "SqlServer": "Server=localhost,1433;Database=CleanArch26Db;User Id=sa;Password=YourPassword;TrustServerCertificate=True;"
 }
 ```
-1. **Restore Dependencies**:
+   > For real secrets, prefer [user secrets](https://learn.microsoft.com/aspnet/core/security/app-secrets) instead of committing them to `appsettings.json`.
+4. **Restore Dependencies**:
 ```bash
 dotnet restore
 ```
-1. **Apply Migrations**:
-   - From the solution root, create and apply the initial migration:
+5. **Apply Migrations** (from the solution root):
 ```bash
-dotnet ef migrations add InitialCreate --project src/CleanArch25.Infrastructure --startup-project src/CleanArch25.API
-dotnet ef database update --project src/CleanArch25.Infrastructure --startup-project src/CleanArch25.API
+dotnet ef migrations add InitialCreate --project src/CleanArch26.Infrastructure --startup-project src/CleanArch26.API
+dotnet ef database update --project src/CleanArch26.Infrastructure --startup-project src/CleanArch26.API
 ```
-1. **Build the Project**:
+6. **Build the Project**:
 ```bash
 dotnet build
 ```
-1. **Run the Application**:
+7. **Run the Application**:
 ```bash
-dotnet run
+dotnet run --project src/CleanArch26.API
 ```
-1. **Access the API**:
-   - Open your web browser and navigate to `http://localhost:5149/scalar/v1` to access the API.
+8. **Access the API**:
+   - Open the `/scalar/v1` path on the URL shown in the console (e.g. `http://localhost:5105/scalar/v1`) to explore and test the endpoints.
 
 ---
 
